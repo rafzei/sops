@@ -122,11 +122,12 @@ func (key *MasterKey) ToString() string {
 }
 
 // NewMasterKey creates a new MasterKey from an ARN, role and context, setting the creation date to the current date
-func NewMasterKey(arn string, role string, context map[string]*string) *MasterKey {
+func NewMasterKey(arn string, role string, context map[string]*string, awsProfile string) *MasterKey {
 	return &MasterKey{
 		Arn:               arn,
 		Role:              role,
 		EncryptionContext: context,
+		AwsProfile: awsProfile,
 		CreationDate:      time.Now().UTC(),
 	}
 }
